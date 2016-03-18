@@ -1,0 +1,5 @@
+1453886195595	Rename type 'Person'
+1453886663203	Encapsulate field 'name'
+1453887427965	Encapsulate field 'name'
+1453887838812	Encapsulate field 'holder'
+1453889496239	Rename method 'getMoney'

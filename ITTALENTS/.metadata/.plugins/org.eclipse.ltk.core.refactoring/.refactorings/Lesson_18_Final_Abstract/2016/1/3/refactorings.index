@@ -1,0 +1,4 @@
+1452438476432	Rename method 'setCurrentUnassignedTaskIndex'
+1452438510210	Rename method 'setCurrentUnassignedNotfinishedTaskIndex'
+1452438534000	Rename method 'setAllwork'
+1452439317239	Extract constant 'WORKING_HOURS_PER_DAY'

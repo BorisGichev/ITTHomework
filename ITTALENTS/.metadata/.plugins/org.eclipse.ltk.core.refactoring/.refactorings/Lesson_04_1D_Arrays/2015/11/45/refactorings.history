@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;five&apos; to &apos;six&apos;&#x0D;&#x0A;- Original project: &apos;LessonFour&apos;&#x0D;&#x0A;- Original element: &apos;five&apos;&#x0D;&#x0A;- Renamed element: &apos;six&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;five&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{five.java[five" matchStrategy="1" name="six" qualified="false" references="true" similarDeclarations="true" stamp="1446685579238" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,10 @@
+package biblioteka;
+
+public class Book extends ReadingMaterial {
+
+	public Book(String name, String publisher) {
+		super(name, publisher);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,11 @@
+package speedy;
+
+
+public class WorkerClient extends Client {
+
+	public WorkerClient(String firstName, String cellPhone, String address,
+			String city) {
+		super(firstName, cellPhone, address, city);
+	}
+
+}

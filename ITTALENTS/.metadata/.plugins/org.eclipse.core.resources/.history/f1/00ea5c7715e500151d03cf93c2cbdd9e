@@ -1,0 +1,49 @@
+package biblioteka;
+
+import java.util.Comparator;
+
+public class TextBook extends ReadingMaterial{
+	private String author;
+	
+
+	public TextBook(String author,String name, String publisher ) {
+		super(name, publisher);
+		this.setAuthor(author);
+	}
+
+	@Override
+	public int getTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	
+
+	@Override
+	public Comparator getComarator() {
+		
+		return new Comparator<TextBook>() {
+
+			@Override
+			public int compare(TextBook o1, TextBook o2) {
+				
+				return o1.getName().compareTo(o2.getName());
+			}
+		};
+	}
+
+}

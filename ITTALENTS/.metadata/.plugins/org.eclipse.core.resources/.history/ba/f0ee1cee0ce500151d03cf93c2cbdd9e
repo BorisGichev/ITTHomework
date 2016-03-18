@@ -1,0 +1,37 @@
+package biblioteka;
+
+import java.time.LocalDateTime;
+
+public class Book extends ReadingMaterial {
+
+	private static final double PRICE = 2.0;
+	private static final int READING_TIME = 3000;
+	private String author;
+	private LocalDateTime issueDate; 
+
+
+	public Book(LocalDateTime issueDate,String name, String publisher, String author
+			) {
+		super(name, publisher);
+		this.author = author;
+		this.issueDate = issueDate;
+	}
+
+	@Override
+	public double getPrice() {
+		return PRICE;
+	}
+
+	@Override
+	public int getTime() {
+		return READING_TIME;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", issueDate=" + issueDate
+				+ ", getName()=" + getName() + ", getPublisher()="
+				+ getPublisher() + "]";
+	}
+
+}

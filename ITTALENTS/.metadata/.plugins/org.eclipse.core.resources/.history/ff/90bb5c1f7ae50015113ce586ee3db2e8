@@ -1,0 +1,10 @@
+package biblioteka;
+
+import java.util.Map;
+
+public class LybraryMan extends Thread {
+
+	private Map<ReadingMaterial, Double>();
+	
+
+}

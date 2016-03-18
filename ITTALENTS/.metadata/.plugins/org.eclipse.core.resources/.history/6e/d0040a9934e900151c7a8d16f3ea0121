@@ -1,0 +1,23 @@
+package speedy;
+
+import java.util.List;
+
+public class Protocol {
+	
+	private Client from;
+	private Client to;
+	private List<Pack> packs;
+	
+	
+	
+	public Protocol(Client from, Client to) {
+		this.from = from;
+		this.to = to;
+	}
+	
+	
+	
+	
+	
+
+}

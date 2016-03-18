@@ -1,0 +1,19 @@
+package biblioteka;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LybraryMan extends Thread {
+
+	private Map<ReadingMaterial, Double> wachtList;
+
+	public LybraryMan() {
+		this.setDaemon(true);
+		wachtList = new HashMap<ReadingMaterial, Double>();
+	}
+
+	public void run() {
+
+	}
+
+}

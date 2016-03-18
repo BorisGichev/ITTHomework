@@ -1,0 +1,61 @@
+package storeHouse;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Store extends StoreHouse {
+
+	private StoreHouse storeHouse;
+	private Thread suplier;
+	private List<Thread> customers;
+
+	public Store(String name, StoreHouse sklada,Thread myThread) {
+		super(name);
+		this.setSklada(sklada);
+		this.suplier=myThread;
+	}
+
+	public void setSklada(StoreHouse sklada) {
+		if (sklada != null) {
+			this.storeHouse = sklada;
+		}
+
+	}
+
+	@Override
+	public void run() {
+
+		while (suplier.isAlive()) {
+
+			while (storeHouse.isSuplierNeeded()) {
+				synchronized (storeHouse) {
+					try {
+						System.out.println(Thread.currentThread().getName()+": waiting storeHouse");
+
+						storeHouse.wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			synchronized (storage) {
+				if (!this.isSuplierNeeded()) {
+					System.out.println(Thread.currentThread().getName()+": calling storeHouse");
+					customers.notifyAll();
+				}
+
+			}
+
+			
+
+		}
+
+	}
+
+}

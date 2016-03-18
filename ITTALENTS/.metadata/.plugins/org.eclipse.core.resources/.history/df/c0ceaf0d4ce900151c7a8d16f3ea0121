@@ -1,0 +1,9 @@
+package dao;
+
+public class ProtocolDAO {
+
+	public ProtocolDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

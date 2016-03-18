@@ -1,0 +1,127 @@
+package speedy;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Office {
+	private static List<Pack> allPackages = new ArrayList<Pack>();
+	private static List<Client> allClients = new ArrayList<Client>();
+	private static List<Protocol> allProtocols = new ArrayList<Protocol>();
+	private static List<Office> allOfices = new ArrayList<>();
+	private WorkerClient workerClient;
+	private WorkerDriver workerDriver;
+	private List<Pack> officePacks;
+	private List<Protocol> officeProtocols;
+	private String city;
+
+	public Office(String city) {
+		this.setWorkerClient(new WorkerClient("Drago ot "+city + "service", "0887615547", "nadevda"));
+		this.setDriverEmployee(new WorkerDriver("Drago ot "+city + "service", "0887615547", "nadevda"));
+		this.officeProtocols = new ArrayList<Protocol>();
+		this.officePacks = new ArrayList<Pack>();
+		this.city = city;
+		allOfices.add(this);
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public WorkerClient getServiceEmployee() {
+		return workerClient;
+	}
+
+	public void setWorkerClient(WorkerClient serviceEmployee) {
+		this.workerClient = serviceEmployee;
+	}
+
+	public WorkerDriver getDriverEmployee() {
+		return workerDriver;
+	}
+
+	public void setDriverEmployee(WorkerDriver driverEmployee) {
+		this.workerDriver = driverEmployee;
+	}
+
+	public Protocol generateProtocol(Pack pack, Client client) {
+		Protocol temp = new Protocol(client, this.getServiceEmployee());
+		allProtocols.add(temp);
+		return temp;
+	}
+
+	public void addPack(Pack pack) {
+		synchronized (allPackages) {
+			Office.allPackages.add(pack);
+
+		}
+
+		synchronized (officePacks) {
+			this.officePacks.add(pack);
+
+		}
+
+	}
+
+	public void addProtocol(Protocol protocol) {
+		synchronized (allProtocols) {
+			Office.allProtocols.add(protocol);
+
+		}
+
+		synchronized (officeProtocols) {
+			this.officeProtocols.add(protocol);
+
+		}
+
+	}
+
+	Comparator<Client> com2 = new Comparator<Client>() {
+
+		@Override
+		public int compare(Client o1, Client o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+
+	};
+
+	public void printAllclients() {
+		
+		Collections.sort(allClients, com2);
+
+		for (Client client : allClients) {
+			client.toString();
+		}
+		
+
+	}
+	
+	Comparator<Pack> com3 = new Comparator<Pack>() {
+
+		@Override
+		public int compare(Pack o1, Pack o2) {
+			return o1.getTimeTaken().compareTo(o2.getTimeTaken());
+		}
+
+	};
+
+	
+public void printAllPacks() {
+		
+		Collections.sort(allPackages, com3);
+
+		for (Pack client : allPackages) {
+			client.toString();
+		}
+		
+
+	}
+
+}
+

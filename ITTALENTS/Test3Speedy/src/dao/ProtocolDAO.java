@@ -1,0 +1,51 @@
+package dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.mysql.jdbc.PreparedStatement;
+import exceptions.ProtocolDAOException;
+import speedy.Protocol;
+
+public class ProtocolDAO extends AbstractDAO implements IProtocolDao {
+	private static final String INSERT_NEW_PROTOCOL_SQL = "INSERT INTO speedy.protocols (protocol_api_id,sender,reciever,time_stamp) VALUES (?,?,?,?);";
+	private static final String INSERT_NEW_PACKS_HAS_PROTOCOLS_SQL = "INSERT INTO speedy.packs_has_protocols  VALUES (?,?);";
+
+	public int addProtocol(Protocol protocol) throws ProtocolDAOException {
+		if (protocol != null) {
+
+			try {
+				java.sql.PreparedStatement ps = getCon().prepareStatement(
+						INSERT_NEW_PROTOCOL_SQL,
+						PreparedStatement.RETURN_GENERATED_KEYS);
+				ps.setInt(1, protocol.getUniqueId());
+				ps.setString(2, protocol.getFrom().toString());
+				ps.setString(3, protocol.getTo().toString());
+				ps.setTimestamp(4, protocol.getTimeCreated());
+
+				ps.executeUpdate();
+
+				for (Integer packID : protocol.getAllPackIds()) {
+					System.out.println("vliza");
+					java.sql.PreparedStatement psID = getCon()
+							.prepareStatement(
+									INSERT_NEW_PACKS_HAS_PROTOCOLS_SQL,
+									PreparedStatement.RETURN_GENERATED_KEYS);
+					psID.setInt(1, packID);
+					psID.setInt(2, protocol.getUniqueId());
+
+					psID.executeUpdate();
+				}
+
+				ResultSet result = ps.getGeneratedKeys();
+				result.next();
+				return result.getInt(1);
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new ProtocolDAOException("Protocol not created.", e);
+			}
+		} else {
+			throw new ProtocolDAOException("Input Protocol is null");
+		}
+	}
+}

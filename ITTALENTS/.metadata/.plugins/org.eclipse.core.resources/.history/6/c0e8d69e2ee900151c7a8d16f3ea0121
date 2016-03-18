@@ -1,0 +1,7 @@
+package exceptions;
+
+import speedy.Client;
+
+public class WorkerClient extends Client {
+
+}

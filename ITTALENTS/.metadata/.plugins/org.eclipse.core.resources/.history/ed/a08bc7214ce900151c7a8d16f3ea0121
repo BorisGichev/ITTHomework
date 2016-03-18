@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.mysql.jdbc.PreparedStatement;
+import exceptions.PackDAOException;
+import speedy.Protocol;
+
+public class ProtocolDAO extends AbstractDAO implements IProtocolDao {
+	private static final String INSERT_NEW_PROTOCOL_SQL = "INSERT INTO speedy.packs (pack_api_id,sender,reciever,content,time_taken) VALUES (?,?,?,?,?);";
+
+	public int addProtocol(Protocol protocol) throws PackDAOException {
+		if (protocol != null) {
+
+			try {
+				java.sql.PreparedStatement ps = getCon().prepareStatement(
+						INSERT_NEW_PROTOCOL_SQL,
+						PreparedStatement.RETURN_GENERATED_KEYS);
+				// ps.setInt(1, pack.getUniqueId());
+				// ps.setString(2, pack.getSender().toString());
+				// ps.setString(3, pack.getReciever().toString());
+				// ps.setString(4, pack.getContent());
+				// ps.setTimestamp(5,pack.getTimeTaken());
+
+				ps.executeUpdate();
+
+				ResultSet result = ps.getGeneratedKeys();
+				result.next();
+				return result.getInt(1);
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new PackDAOException("Pack not created.", e);
+			}
+		} else {
+			throw new PackDAOException("Input pack is null");
+		}
+	}
+}

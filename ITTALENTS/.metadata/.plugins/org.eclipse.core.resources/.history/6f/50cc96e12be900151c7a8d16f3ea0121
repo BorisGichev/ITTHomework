@@ -1,0 +1,62 @@
+package speedy;
+
+import exceptions.ClientException;
+
+public class Client {
+	private static int number=1;
+	private String name;
+	private String cellPhone;
+	private String address;
+	private String city;
+//	private Office ofice;
+	
+	
+	public Client(String name, String cellPhone, String address, String city) {
+		this.setName(name);
+		this.setCellPhone(cellPhone);
+		this.address = address;
+		this.city = city;
+	}
+	
+	public String getID(){
+		return "EGN";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if (name!=null&&name.trim().length()!=0) {
+			this.name = name;
+		}
+		else{
+			try {
+				throw new ClientException("invalid name");
+			} catch (ClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public String getCellPhone() {
+		return cellPhone;
+	}
+
+	public void setCellPhone(String cellPhone) {
+		if (cellPhone!=null&&cellPhone.trim().length()!=0) {
+			this.cellPhone = cellPhone;
+		}
+		else{
+			try {
+				throw new ClientException("invalid gsm");
+			} catch (ClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+}

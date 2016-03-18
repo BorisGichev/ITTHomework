@@ -1,0 +1,278 @@
+
+import java.sql.*;
+
+public class DAO {
+
+	private String userName;
+	private String eMail;
+	private String passWord;
+	private String yourName;
+	private boolean isFemale;
+	private int year;
+	private int month;
+	private int day;
+	
+	private StringBuilder tellPeopleWhoYouAre;
+	private final static String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+	static String url = "jdbc:mysql://127.0.0.1:3306/9gag?useSSL=false";
+	static String user = "boris";
+	static String password = "Istinataboli1@";
+	static Connection myConn = null;
+
+	private DAO(String userName, String eMail, String passWord) {
+		this.setUserName(userName);
+		this.setMail(eMail);
+		this.setPassWord(passWord);
+
+	}
+
+	public String getYourName() {
+		return yourName;
+	}
+
+	public void setYourName(String yourName) {
+		if (yourName != null && yourName.length() > 0) {
+			this.yourName = yourName;
+		}
+
+	}
+
+	public boolean isFemale() {
+		return isFemale;
+	}
+
+	public void setFemale(boolean isFemale) {
+		this.isFemale = isFemale;
+	}
+
+	public StringBuilder getTellPeopleWhoYouAre() {
+		return tellPeopleWhoYouAre;
+	}
+
+	public void setTellPeopleWhoYouAre(String tellPeopleWhoYouAre) {
+		this.tellPeopleWhoYouAre.append(tellPeopleWhoYouAre);
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		if (DAO.isPaswordStrong(passWord)) {
+			this.passWord = passWord;
+			return;
+		}
+		System.out.println("Waek pass");
+	}
+
+	public String getEMail() {
+		return eMail;
+	}
+
+	public void setMail(String eMail) {
+		this.eMail = eMail;
+
+	}
+
+	public static boolean isEMailValid(String address) {
+
+		Boolean b = address.matches(EMAIL_REGEX);
+		if (b) {
+			return true;
+		}
+
+		System.out.println("Invalid mail");
+		return false;
+	}
+
+	public static boolean isPaswordStrong(String pass) {
+		if (pass.length() < 6) {
+			System.out.println("Too short");
+			return false;
+		}
+		boolean upper = false;
+		boolean lower = false;
+		boolean number = false;
+
+		for (int i = 0; i < pass.length(); i++) {
+			if (upper == false && pass.charAt(i) >= 'A'
+					&& pass.charAt(i) <= 'Z') {
+				upper = true;
+			}
+			if (lower == false && pass.charAt(i) >= 'a'
+					&& pass.charAt(i) <= 'z') {
+				lower = true;
+			}
+			if (number == false && pass.charAt(i) >= '0'
+					&& pass.charAt(i) <= '9') {
+				number = true;
+			}
+
+			if (number && upper && lower) {
+				return true;
+			}
+		}
+		System.out.println("Weak password");
+		return false;
+	}
+
+	public static boolean isUserNameValid(String userName) {
+		if (userName != null && userName.length() >= 0) {
+			return true;
+		}
+		return false;
+
+	}
+
+	static DAO createAccount(String userName, String eMail, String passWord) {
+		Statement myStmt = null;
+		DAO temp = null;
+
+		try {
+
+			if (!DAO.checkIfEmailIsUnique(eMail)) {
+				throw new AccException("User with that email already exist");
+
+			}
+			if (!isEMailValid(eMail) || !isPaswordStrong(passWord)
+					|| !isUserNameValid(userName)) {
+
+				throw new AccException("Invalid e input");
+
+			}
+
+			temp = new DAO(userName, eMail, passWord);
+
+			myConn = DriverManager.getConnection(url, user, password);
+
+			myStmt = myConn.createStatement();
+
+			String sql = "insert into user " + " (email,username,pass)"
+					+ " values(  '" + eMail + "' , '" + userName + "' , '"
+					+ passWord + "')";
+
+			myStmt.executeUpdate(sql);
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (myStmt != null) {
+				try {
+					myStmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (myConn != null) {
+				try {
+					myConn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return temp;
+	}
+
+	static DAO login(String eMail, String passWord) {
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		try {
+
+			myConn = DriverManager.getConnection(url, user, password);
+
+			myStmt = myConn.createStatement();
+
+			myRs = myStmt.executeQuery("select * from 9gag.user where email ='"+eMail+"';");
+
+			if(myRs.next()){
+				if (myRs.getString("pass").equals(passWord)) {
+				System.out.println("Hi "+myRs.getString("username")+" you are now logged");
+				return new DAO(myRs.getString("username"), eMail, passWord);
+				}
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (myStmt != null) {
+				try {
+					myStmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (myConn != null) {
+				try {
+					myConn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [userName=" + userName + ", eMail=" + eMail
+				+ ", passWord=" + passWord + ", yourName=" + yourName
+				+ ", isFemale=" + isFemale + ", year=" + year + ", month="
+				+ month + ", day=" + day 
+				+ ", tellPeopleWhoYouAre=" + tellPeopleWhoYouAre + "]";
+	}
+
+	
+
+	
+
+	public static boolean checkIfEmailIsUnique(String eMail) {
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		try {
+
+			myConn = DriverManager.getConnection(url, user, password);
+
+			myStmt = myConn.createStatement();
+
+			myRs = myStmt
+					.executeQuery("select email from 9gag.user where email ='"
+							+ eMail + "';");
+
+			if (myRs.next()) {
+				if (myRs.getString("email").equalsIgnoreCase(eMail)) {
+					return false;
+
+				}
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			if (myStmt != null) {
+				try {
+					myStmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (myConn != null) {
+				try {
+					myConn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return true;
+	}
+}

@@ -1,0 +1,22 @@
+package speedy;
+
+
+public class WorkerClient extends Client {
+
+	public WorkerClient(String firstName, String cellPhone, String address) {
+		super(firstName, cellPhone, address);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "WorkerClient [firstName()=" + firstName() + ", getCellPhone()="
+				+ getCellPhone() + ", getCity()=" + getCity() + ", getId()="
+				+ getId() + "]";
+	}
+	
+	
+
+
+
+}

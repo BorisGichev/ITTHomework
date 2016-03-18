@@ -1,0 +1,14 @@
+package exceptions;
+
+
+public class WorkerDriver extends WorkerClient{
+	
+	
+
+	public WorkerDriver(String firstName, String cellPhone, String address,
+			String city) {
+		super(firstName, cellPhone, address, city);
+		// TODO Auto-generated constructor stub
+	}
+
+}

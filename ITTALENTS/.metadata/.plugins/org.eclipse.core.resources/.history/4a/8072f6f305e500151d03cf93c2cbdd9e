@@ -1,0 +1,23 @@
+package biblioteka;
+
+public class Book extends ReadingMaterial {
+
+	private static final int READING_TIME = 3000;
+
+	public Book(String name, String publisher) {
+		super(name, publisher);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int getTime() {
+		return READING_TIME;
+	}
+
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return 2.0;
+	}
+
+}

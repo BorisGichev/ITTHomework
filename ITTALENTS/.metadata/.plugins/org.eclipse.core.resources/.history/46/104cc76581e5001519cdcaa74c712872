@@ -1,0 +1,5 @@
+package dateAndTime;
+
+public class AccException extends Exception {
+
+}

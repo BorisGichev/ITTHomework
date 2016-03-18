@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;Samples/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;SortingAlorithms&apos;&#x0D;&#x0A;- Destination element: &apos;Samples/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Sort_2_Selection.java&#x0D;&#x0A;     Sort_1_Bubble.java&#x0D;&#x0A;     Sort_3_Counting.java" description="Copy compilation units" destination="=Samples/src&lt;" element1="/src&lt;{Sort_2_Selection.java" element2="/src&lt;{Sort_1_Bubble.java" element3="/src&lt;{Sort_3_Counting.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1453143808635" units="3" version="1.0"/>
+</session>

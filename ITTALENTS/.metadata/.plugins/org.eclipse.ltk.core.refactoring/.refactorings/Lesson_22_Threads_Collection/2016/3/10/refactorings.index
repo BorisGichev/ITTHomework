@@ -1,0 +1,13 @@
+1457200321570	Extract method 'validateInput'
+1457200375344	Rename method 'validateInput'
+1457200488760	Copy method
+1457200500840	Move method
+1457201821517	Delete element
+1457201866731	Move method
+1457201959982	Extract interface 'IMusicStore'
+1457202673721	Encapsulate field 'sup'
+1457202881092	Encapsulate field 'countNeeded'
+1457202888531	Encapsulate field 'instrumentNeeded'
+1457203852821	Encapsulate field 'supT'
+1457209929311	Copy compilation unit
+1457209935736	Delete element

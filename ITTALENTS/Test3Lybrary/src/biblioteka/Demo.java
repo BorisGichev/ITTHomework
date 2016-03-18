@@ -1,0 +1,13 @@
+package biblioteka;
+
+public class Demo {
+public static void main(String[] args) {
+	Lybrary lib = new Lybrary("Sofia");
+//	lib.showMagazines();
+//	lib.showBooks();
+	lib.showTextBooks();
+	
+}
+
+
+}

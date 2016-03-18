@@ -1,0 +1,9 @@
+package biblioteka;
+
+public class RMException {
+
+	public RMException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,43 @@
+package speedy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Protocol {
+	private static int Id=1;
+	private int uniqueId;
+	
+	private Client from;
+	private Client to;
+	
+	private String fromInfo;
+	private String toInfo;
+	
+	private List<Pack> packs;
+	
+	
+	
+	public Protocol(Client from, Client to) {
+		this.from = from;
+		this.to = to;
+		this.uniqueId=Protocol.Id++;
+	}
+	
+	public List<Integer> getAllPackIds(){
+		List<Integer> ids=new ArrayList<Integer>();
+		for (Pack pack : packs) {
+			ids.add(pack.getUniqueId());
+		}
+		return ids;
+	}
+
+	public int getUniqueId() {
+		return uniqueId;
+	}
+
+	
+	
+	
+	
+
+}

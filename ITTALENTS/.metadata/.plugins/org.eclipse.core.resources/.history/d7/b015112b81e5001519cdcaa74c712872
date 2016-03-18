@@ -1,0 +1,9 @@
+package dateAndTime;
+
+public class DAO {
+
+	public DAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

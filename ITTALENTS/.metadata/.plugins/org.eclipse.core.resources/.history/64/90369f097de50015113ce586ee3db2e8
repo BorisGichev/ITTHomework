@@ -1,0 +1,126 @@
+package biblioteka;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Lybrary {
+	private String name;
+	private LybraryMan lybraryMan;
+	private Map<Types, Map<String, List<ReadingMaterial>>> storage;
+
+	public Lybrary(String name) {
+		this.name = name;
+		
+		this.storage = new HashMap<Types, Map<String, List<ReadingMaterial>>>();
+		storage.put(Types.Book, new TreeMap<String, List<ReadingMaterial>>());
+		storage.put(Types.Magazine,
+				new TreeMap<String, List<ReadingMaterial>>());
+		storage.put(Types.Textbook,
+				new TreeMap<String, List<ReadingMaterial>>());
+
+		storage.get(Types.Book).put(
+				"Istoricheski",
+				Arrays.asList(new Book(LocalDateTime.of(1963, 11, 10, 3, 34),
+						"Ivan Vazov", "Pod igoto", "Prosveta"), new Book(
+						LocalDateTime.now(), "Ekziuperi", "Malkiq Princ",
+						"Nov svqt")));
+
+		storage.get(Types.Magazine).put(
+				"qodni",
+				Arrays.asList(new Magazine(LocalDateTime.now(), 3, "Cosmos",
+						"Anubis"), new Magazine(LocalDateTime.now(), 5,
+						"Blqsyk", "Bulvest 2000"),
+						new Magazine(LocalDateTime.now(), 2, "Blqsyk",
+								"Bulvest 2000"),
+						new Magazine(LocalDateTime.now(), 1, "Blqsyk",
+								"Bulvest 2000")));
+		storage.get(Types.Magazine).put(
+				"bodni",
+				Arrays.asList(new Magazine(LocalDateTime.now(), 3, "Cosmos",
+						"Anubis"), new Magazine(LocalDateTime.now(), 5,
+						"Blqsyk", "Bulvest 2000"),
+						new Magazine(LocalDateTime.now(), 2, "Blqsyk",
+								"Bulvest 2000"),
+						new Magazine(LocalDateTime.now(), 1, "Blqsyk",
+								"Bulvest 2000")));
+
+		storage.get(Types.Textbook)
+				.put("Matematika",
+						Arrays.asList(new TextBook("Ganio Hristev",
+								"Algebra za 5 klas", "Anubis"), new TextBook(
+								"Stamat Stoynov", "Integrali za 2-ri klas",
+								"Prosveta")));
+	}
+
+	public void showMagazines() {
+		Map<String, List<ReadingMaterial>> magazines = this.storage
+				.get(Types.Magazine);
+		for (String category : magazines.keySet()) {
+			System.out.println(category);
+
+			List<ReadingMaterial> materials = magazines.get(category);
+			materials.sort(materials.get(0).getComarator());
+			for (ReadingMaterial readingMaterial : materials) {
+				System.out.println(readingMaterial.toString());
+			}
+
+		}
+
+	}
+	
+	public void showBooks() {
+		Map<String, List<ReadingMaterial>> books = this.storage
+				.get(Types.Book);
+		for (String category : books.keySet()) {
+			System.out.println(category);
+
+			List<ReadingMaterial> materials = books.get(category);
+			materials.sort(materials.get(0).getComarator());
+			for (ReadingMaterial readingMaterial : materials) {
+				System.out.println(readingMaterial.toString());
+			}
+
+		}
+
+	}
+	
+	public void showTextBooks() {
+		Map<String, List<ReadingMaterial>> textBooks = this.storage
+				.get(Types.Textbook);
+		for (String category : textBooks.keySet()) {
+			System.out.println(category);
+
+			List<ReadingMaterial> materials = textBooks.get(category);
+			materials.sort(materials.get(0).getComarator());
+			for (ReadingMaterial readingMaterial : materials) {
+				System.out.println(readingMaterial.toString());
+			}
+
+		}
+
+	}
+	
+	public void getReadingMaterial(ReadingMaterial readingMaterial) throws LibraryException {
+		if (readingMaterial != null && readingMaterial.canBetaken() && !readingMaterial.isTaken()) {
+			readingMaterial.takeIt(true);
+			libraryMan.addMaterialToWatch(readingMaterial);
+
+		} else {
+			throw new LibraryException("Material can not be taken");
+		}
+	}
+
+	public LybraryMan getLybraryMan() {
+		return lybraryMan;
+	}
+
+	public void setLybraryMan(LybraryMan lybraryMan) {
+		this.lybraryMan = lybraryMan;
+	}
+	
+	
+}

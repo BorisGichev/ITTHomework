@@ -1,0 +1,20 @@
+1456049975035	Rename method 'removeProduct'
+1456050193794	Rename field 'instrumentPrices'
+1456050242802	Delete element
+1456050492479	Rename method 'addProduct'
+1456050975570	Extract interface 'IMusicStore'
+1456051996485	Rename local variable 'productType'
+1456052031271	Rename local variable 'productName'
+1456054694706	Rename method 'printByType'
+1456055219882	Rename method 'printByType'
+1456055583802	Move method
+1456055600912	Rename method 'printByName'
+1456056547243	Rename local variable 'instrumentEntry'
+1456058379922	Rename local variable 'byType'
+1456061225736	Move method
+1456061227693	Move method
+1456061234511	Rename method 'printByPrice'
+1456094007005	Rename method 'showMostSelledInstrument'
+1456094161127	Rename method 'showMostSolddInstrument'
+1456098990409	Extract constant 'ONE_MONTH'
+1456103688094	Encapsulate field 'sup'

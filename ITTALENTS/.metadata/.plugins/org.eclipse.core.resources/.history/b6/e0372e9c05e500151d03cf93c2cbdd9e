@@ -1,0 +1,52 @@
+package biblioteka;
+
+public abstract class ReadingMaterial {
+	private String name;
+	private String publisher;
+	
+	
+	public ReadingMaterial(String name, String publisher) {
+		this.setName(name);
+		this.setPublisher(publisher);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		if (name==null||name.trim().length()==0) {
+			return;
+		} else
+			try {
+				throw new RMException("Invalid name");
+			} catch (RMException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+
+	public void setPublisher(String publisher) {
+		if (name==null||name.trim().length()==0) {
+			return;
+		} else
+			try {
+				throw new RMException("Invalid name");
+			} catch (RMException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+
+	
+	
+
+}

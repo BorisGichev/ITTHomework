@@ -1,0 +1,48 @@
+1455699045253	Rename field 'instrumentList'
+1455699065856	Rename field 'instrumentPrices'
+1455700201442	Rename compilation unit 'StroreHouse.java'
+1455741550160	Rename method 'fillProductCounts'
+1455742258923	Delete element
+1455742289745	Move method
+1455742292136	Move method
+1455742296403	Move method
+1455755877586	Encapsulate field 'sklada'
+1455756596239	Extract constant 'COUN_TO_SUPPLY_WHEN_LOW'
+1455756623540	Extract constant 'MIN_COUNT_TRIGGER_DELIVERY'
+1455758337919	Encapsulate field 'needSuplier'
+1455760519432	Extract interface 'IStoreHouse'
+1455762828363	Extract constant 'INITIAL_COUNT'
+1455814287069	Rename field 'sup'
+1455814306767	Rename field 'storeHouse'
+1455814387615	Rename field 'sklada'
+1455814748021	Rename field 'sklada'
+1455815702367	Rename method 'isNeedSuplier'
+1455816657618	Rename local variable 'bila'
+1455836886227	Rename local variable 'rand'
+1455836961976	Extract constant 'TAKING_NUMBER_OF_PRODUCTS'
+1455840021407	Extract constant 'SLEEP_TIME'
+1455840173906	Rename local variable 'triger'
+1455865473852	Rename method 'getMinCount'
+1455865529564	Rename method 'getTrigeCount'
+1455885042786	Rename local variable 'hale'
+1455885058303	Rename local variable 'haleT'
+1455885167889	Rename local variable 'store1'
+1455885179506	Rename local variable 'store1O'
+1455885710159	Rename local variable 'magazin'
+1455885879982	Rename field 'store'
+1455886949663	Rename method 'setSklada'
+1455887290869	Rename local variable 'sklad'
+1455887303399	Rename local variable 'storehouse'
+1455887320087	Rename local variable 'skladThread'
+1455889920925	Rename type 'AbstractStore'
+1455889945924	Move method
+1455889950783	Move method
+1455890114959	Delete element
+1455890118493	Delete element
+1455890121874	Delete element
+1455890127800	Delete element
+1455890129857	Delete element
+1455890134160	Delete element
+1455890397516	Move method
+1455890495316	Rename local variable 'jenskiPazarSup'
+1455890591918	Rename local variable 'jenskiPazar'

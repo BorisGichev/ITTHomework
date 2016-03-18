@@ -1,0 +1,22 @@
+1452030505382	Delete element
+1452032150852	Rename type 'TaskDemo'
+1452037659984	Encapsulate field 'allwork'
+1452037667326	Delete element
+1452037699540	Move method
+1452037810036	Move method
+1452037817795	Move method
+1452037823134	Move method
+1452037891360	Move method
+1452037892730	Move method
+1452039106453	Move method
+1452039110638	Move method
+1452039119146	Delete element
+1452174085617	Encapsulate field 'freePlacesForTasks'
+1452189475972	Rename local variable 'allwork'
+1452190611942	Rename method 'startNewDayForworker'
+1452190728400	Rename method 'printInfo'
+1452195447974	Extract constant 'DEFOULD_NUMBER_OF_TASKS'
+1452197081497	Move method
+1452197775592	Rename field 'allwork'
+1452200207035	Rename method 'setCurrentUnassignedTask'
+1452200220576	Rename field 'currentUnassignedTask'

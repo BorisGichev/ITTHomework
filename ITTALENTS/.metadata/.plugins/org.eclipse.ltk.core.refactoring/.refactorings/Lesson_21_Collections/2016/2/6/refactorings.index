@@ -1,0 +1,15 @@
+1454633929703	Rename type 'CountLeters'
+1454633933515	Rename type 'ICountLeters'
+1454634609438	Rename local variable 'i'
+1454634624982	Rename local variable 'letter'
+1454644198137	Encapsulate field 'count'
+1454657006706	Copy compilation unit
+1454771647255	Extract constant 'MAX_MARKER'
+1454773408389	Rename method 'print'
+1454776269606	Encapsulate field 'message'
+1454776508907	Delete element
+1454776570356	Encapsulate field 'text'
+1454779639279	Rename type 'BankEntity'
+1454779663547	Rename type 'BankCredit'
+1454779672986	Rename type 'BankDeposit'
+1454779714406	Rename type 'HomeCredit'

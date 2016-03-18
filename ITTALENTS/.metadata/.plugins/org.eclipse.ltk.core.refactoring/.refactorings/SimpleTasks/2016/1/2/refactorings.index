@@ -1,0 +1,7 @@
+1451860090488	Extract constant 'Max_cards'
+1451860141385	Extract constant 'NORMAL_CARDS'
+1451860180793	Rename field 'Max_cards'
+1451860243499	Extract constant 'CARDS_IN_SUIT'
+1451860548786	Encapsulate field 'playersDeck'
+1451860552929	Encapsulate field 'name'
+1451987132642	Rename local variable 'player1Firstcard'

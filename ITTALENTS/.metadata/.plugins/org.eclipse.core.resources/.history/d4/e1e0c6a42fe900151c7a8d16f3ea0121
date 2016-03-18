@@ -1,0 +1,17 @@
+package exceptions;
+
+
+public class Firm extends Client{
+
+	public Firm(String firstName, String cellPhone, String address, String city) {
+		super(firstName, cellPhone, address, city);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public String getID() {
+		// TODO Auto-generated method stub
+		return "Bulstat";
+	}
+
+}

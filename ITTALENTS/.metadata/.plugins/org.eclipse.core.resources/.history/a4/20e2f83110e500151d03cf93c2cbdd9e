@@ -1,0 +1,28 @@
+package biblioteka;
+
+import java.time.LocalDateTime;
+
+public class Magazine extends ReadingMaterial {
+	private LocalDateTime issueDate; 
+	private int issue;
+
+	
+	public Magazine(LocalDateTime issueDate,int issue,String name, String publisher) {
+		super(name, publisher);
+		this.issueDate = issueDate;
+		this.issue = issue;
+	}
+
+
+	@Override
+	public int getTime() { 
+		return -1;
+	}
+
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+}

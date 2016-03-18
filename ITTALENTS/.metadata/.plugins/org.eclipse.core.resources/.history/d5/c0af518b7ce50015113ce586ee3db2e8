@@ -1,0 +1,42 @@
+package biblioteka;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+public class LybraryMan extends Thread {
+
+	private static final int TIME_SLEEPING = 1000;
+	private Map<ReadingMaterial, Double> wachtList;
+
+	public LybraryMan() {
+		this.setDaemon(true);
+		wachtList = new HashMap<ReadingMaterial, Double>();
+	}
+
+	public void run() {
+		while (true) {
+			try {
+				Thread.sleep(TIME_SLEEPING);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			for (ReadingMaterial rm : wachtList.keySet()) {
+				int seconds = (rm.getTime() / 1000);
+				Duration timeelapsed = Duration.between(rm.getLastTakenTime(),
+						LocalDateTime.now());
+				if (timeelapsed.getSeconds() > seconds) {
+					synchronized (wachtList) {
+						wachtList.put(rm,
+								(wachtList.get(rm) + rm.getPrice() * 0.01));
+
+					}
+
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,16 @@
+package biblioteka;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Lybrary {
+	String name;
+	private Map<Types, Map<String, List<ReadingMaterial>>> storage;
+
+	public Lybrary(String name) {
+	this.name=name;
+	this.storage= new HashMap HashMap<Types, new TreeMap<String,ReadingMaterial>()>();
+	}
+
+}

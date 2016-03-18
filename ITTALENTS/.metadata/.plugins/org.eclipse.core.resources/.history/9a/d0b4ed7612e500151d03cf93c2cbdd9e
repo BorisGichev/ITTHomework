@@ -1,0 +1,52 @@
+package biblioteka;
+
+import java.time.LocalDateTime;
+import java.util.Comparator;
+
+public class Magazine extends ReadingMaterial {
+	private LocalDateTime issueDate; 
+	private int issue;
+
+	
+	public Magazine(LocalDateTime issueDate,int issue,String name, String publisher) {
+		super(name, publisher);
+		this.issueDate = issueDate;
+		this.setIssue(issue);
+	}
+
+
+	@Override
+	public int getTime() { 
+		return -1;
+	}
+
+	@Override
+	public double getPrice() {
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+
+	public int getIssue() {
+		return issue;
+	}
+
+
+	public void setIssue(int issue) {
+		this.issue = issue;
+	}
+
+
+	@Override
+	public Comparator getComarator() {
+		
+		return (m1,m2)->{
+			if (m1.getName().compareTo(m2.getName()) == 0) {
+			return m1. - m2.get();
+		}
+		return o1.getName().compareTo(m2.getName());
+	};
+	}
+
+	
+}

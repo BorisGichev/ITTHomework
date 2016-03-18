@@ -1,0 +1,18 @@
+1457424235201	Delete element
+1457424847681	Extract constant 'READING_TIME'
+1457424934596	Extract constant 'PRICE'
+1457426923408	Move method
+1457426980823	Move method
+1457428130600	Encapsulate field 'takingTime'
+1457428134851	Encapsulate field 'ReturningTime'
+1457429342546	Encapsulate field 'issue'
+1457430446619	Infer generic type arguments
+1457430992201	Rename local variable 'magazines'
+1457431111514	Encapsulate field 'author'
+1457431117824	Encapsulate field 'issueDate'
+1457431266077	Rename local variable 'books'
+1457431307252	Encapsulate field 'author'
+1457474588937	Rename field 'taken'
+1457474599407	Encapsulate field 'isTaken'
+1457475008672	Extract constant 'TIME_SLEEPING'
+1457476070251	Encapsulate field 'lybraryMan'

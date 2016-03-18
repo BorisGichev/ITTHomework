@@ -1,0 +1,35 @@
+1454872366823	Move method
+1454873955109	Encapsulate field 'period'
+1454874716437	Encapsulate field 'ammount'
+1454874722789	Encapsulate field 'monthBalanceChange'
+1454874729697	Encapsulate field 'percent'
+1454874735215	Encapsulate field 'name'
+1454876597968	Encapsulate field 'Balance'
+1454876940538	Rename field 'Balance'
+1454877035500	Encapsulate field 'perMonth'
+1454877428402	Encapsulate field 'bank'
+1454878098068	Move method
+1454880278457	Encapsulate field 'balance'
+1454880772447	Encapsulate field 'reserve'
+1454882182403	Rename method 'openDeposit'
+1454883726918	Rename field 'ammount'
+1454886445024	Move method
+1454886447555	Move method
+1455054230881	Rename method 'getAmmount'
+1455054237598	Rename method 'setAmmount'
+1455055431536	Move method
+1455055436503	Move method
+1455055717264	Rename method 'calculatePayment'
+1455057422450	Move method
+1455057693137	Delete element
+1455126870616	Extract constant 'RESERVE_RATIO'
+1455126910046	Extract constant 'BALANCE_RATIO'
+1455127584593	Extract constant 'INITIAL_MONEY_COEF'
+1455127629745	Extract constant 'INITIAL_PLACES_FOR_DEPOSITS'
+1455127653815	Extract constant 'INITIAL_PLACES_FOR_CREDTS'
+1455127743232	Extract constant 'MIN_PERCENT_OF_RANDOM_DEPOSIT'
+1455127826269	Extract constant 'MAX_PERCEN_OF_RANDOM_DEPOSIT'
+1455128096671	Extract constant 'MAX_PERIOD_FOR_CREDIT'
+1455128135424	Extract constant 'MIN_PERIOD_FOR_CREDIT'
+1455128266816	Extract constant 'MIN_PERIOD'
+1455128282177	Extract constant 'MAX_PERIOD'

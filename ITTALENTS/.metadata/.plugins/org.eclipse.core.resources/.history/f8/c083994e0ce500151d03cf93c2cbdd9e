@@ -1,0 +1,13 @@
+package biblioteka;
+
+import java.util.Map;
+
+public class Lybrary {
+	String name;
+	private Map<Types, Map<String, ReadingMaterial>> storage;
+
+	public Lybrary(String name) {
+	this.name=name;
+	}
+
+}

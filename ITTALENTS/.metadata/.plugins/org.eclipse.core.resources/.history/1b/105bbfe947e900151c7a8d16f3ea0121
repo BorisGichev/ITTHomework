@@ -1,0 +1,29 @@
+package speedy;
+
+import dao.PackDAO;
+import exceptions.PackDAOException;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		Client sender= new Client("Blagoi", "321354", "cheresha");
+		Client reciever= new Client("mundio", "321354", "qgoda");
+		
+		Office sof= new Office("Sofiq");
+		Office var= new Office("Varna");
+		sender.setOffice(sof);
+		reciever.setOffice(var);
+		
+		Pack temp=new Pack(sender, reciever, "qica");
+		
+		
+		try {
+			PackDAO.addPack(temp);
+		} catch (PackDAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

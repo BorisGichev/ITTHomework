@@ -1,0 +1,12 @@
+1454356071432	Infer generic type arguments
+1454356396644	Encapsulate field 'name'
+1454356600348	Rename type 'country'
+1454357665504	Encapsulate field 'userName'
+1454358363608	Encapsulate field 'passWord'
+1454359786167	Encapsulate field 'eMail'
+1454362881963	Move method
+1454362894046	Move method
+1454362898077	Move method
+1454362909892	Move method
+1454362989761	Rename type 'Account'
+1454365217181	Rename package 'gal'

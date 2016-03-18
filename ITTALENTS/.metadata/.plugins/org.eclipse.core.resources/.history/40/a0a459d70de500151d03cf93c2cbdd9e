@@ -1,0 +1,53 @@
+package biblioteka;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class ReadingMaterial {
+	private String name;
+	private String publisher;
+	private List<History> history;
+
+	public ReadingMaterial(String name, String publisher) {
+		this.setName(name);
+		this.setPublisher(publisher);
+		this.history=new ArrayList<History>();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if (name == null || name.trim().length() == 0) {
+			return;
+		} else
+			try {
+				throw new RMException("Invalid name");
+			} catch (RMException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		if (name == null || name.trim().length() == 0) {
+			return;
+		} else
+			try {
+				throw new RMException("Invalid name");
+			} catch (RMException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+
+	public abstract int getTime();
+
+	public abstract double getPrice();
+
+}

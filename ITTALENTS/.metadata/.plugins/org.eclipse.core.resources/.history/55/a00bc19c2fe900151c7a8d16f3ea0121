@@ -1,0 +1,77 @@
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import speedy.Client;
+
+public class Pack {
+	private static int Id=1;
+	private Client sender;
+	private Client reciever;
+	private WorkerClient employee;
+	private boolean isDelivered=false;
+	private String content;
+	
+	
+	private LocalDateTime timeTaken;
+	private int uniqueId;
+	List<Protocol> packProtocols;
+	
+	
+	public Pack(Client sender, Client reciever,String content) {
+		this.sender = sender;
+		this.reciever = reciever;
+		this.uniqueId = Id++;
+		this.content=content;
+		this.packProtocols = new ArrayList<Protocol>();
+		
+	}
+	
+	public void addProtocol(Protocol protocol){
+		packProtocols.add(protocol);
+	}
+
+	public ServiceEmployee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(ServiceEmployee employee) {
+		this.employee = employee;
+	}
+
+	public boolean isDelivered() {
+		return isDelivered;
+	}
+
+	public void setDelivered(boolean isDelivered) {
+		this.isDelivered = isDelivered;
+	}
+
+	public LocalDateTime getTimeTaken() {
+		return timeTaken;
+	}
+
+	public void setTimeTaken(LocalDateTime timeTaken) {
+		this.timeTaken = timeTaken;
+	}
+
+	public static int getId() {
+		return Id;
+	}
+
+	public Client getSender() {
+		return sender;
+	}
+
+	public Client getReciever() {
+		return reciever;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
