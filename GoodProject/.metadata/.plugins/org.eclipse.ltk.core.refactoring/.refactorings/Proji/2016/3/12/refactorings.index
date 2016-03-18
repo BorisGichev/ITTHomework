@@ -1,0 +1,16 @@
+1458167158120	Encapsulate field 'accID'
+1458172897199	Rename type 'EmailTaken'
+1458177910886	Rename resource 'login1.html'
+1458177951456	Rename type 'Login'
+1458178603455	Extract constant 'SELECT_FROM_MAIL'
+1458262824974	Move method
+1458262922978	Encapsulate field 'birthday'
+1458263278391	Encapsulate field 'acc'
+1458263803639	Rename field 'country'
+1458263851033	Encapsulate field 'country'
+1458264793327	Delete element
+1458264809022	Rename resource 'Uploads'
+1458267853413	Rename type 'Upload'
+1458270573559	Infer generic type arguments
+1458311962647	Copy file
+1458312161230	Rename resource 'wallpaper-28484.jpg'
